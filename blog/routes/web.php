@@ -28,3 +28,5 @@ Route::get('/', [PagesController::class, 'index']);
 Route::get('/contact-us', [PagesController::class, 'contact']);
 Route::get('/about-us', [PagesController::class, 'about']);
 Route::get('/articles', [ArticlesController::class, 'index']);
+// Route::get('/article/{id}', [ArticlesController::class, 'show']);
+Route::get('/article/{article}', [ArticlesController::class, 'show']);

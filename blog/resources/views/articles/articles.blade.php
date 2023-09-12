@@ -1,12 +1,14 @@
-<h2>Nos Articles 🤗</h2>
-
-@if ($articles)
-    @foreach ($articles as $article)
-        @include('articles.index')
-    @endforeach
-@else
-    @include('articles.no-articles')
-@endif
+@extends('layouts.master')
+@section('content')
+    <h2>Nos Articles 🤗</h2>
+    @if ($articles)
+        @foreach ($articles as $article)
+            @include('partials.article')
+        @endforeach
+    @else
+        @include('partials.no-articles')
+    @endif
+@endsection
 
 {{-- @forelse ($articles as $article)
     @include('articles.index')

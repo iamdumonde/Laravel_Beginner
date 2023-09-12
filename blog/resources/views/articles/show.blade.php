@@ -1,5 +1,4 @@
 @extends('layouts.master')
-
 @section('content')
-<h2>Contactez-nous ! ☎ </h2>
+<p>Show me your anger !</p>
 @endsection

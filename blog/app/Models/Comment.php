@@ -11,4 +11,14 @@ class Comment extends Model
 
     //Ajout
     protected $fillable = ['comment', 'user_id', 'article_id'];
+
+    //Un commentaire n'a qu'un auteur
+    public function user(){
+        return $this->belongsTo(User::class);
+    }
+
+    //Un commentaire n'a qu'un aritcle
+    public function article(){
+        return $this->belongsTo(User::class);
+    }
 }
