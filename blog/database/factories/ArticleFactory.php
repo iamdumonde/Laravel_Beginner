@@ -7,7 +7,8 @@ use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Model>
+ * @extends 
+ * \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Model>
  */
 class ArticleFactory extends Factory
 {
@@ -29,7 +30,7 @@ class ArticleFactory extends Factory
             //
             'title' => fake()->sentence(15),
             //On veut 15 mots
-            'body' => fake()->paragraph(50),
+            'body' => fake()->text(200),
             // on veut 50 phrases
             'user_id' => function () {
                 return User::inRandomOrder()->first()->id;

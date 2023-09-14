@@ -46,8 +46,8 @@
             </div>
         </div>
     </nav>
-
     @yield('content')
+    @include('messages.success')
 </body>
 
 </html>

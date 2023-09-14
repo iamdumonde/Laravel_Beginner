@@ -1,4 +1,9 @@
 @extends('layouts.master')
+
+@section('title')
+    Articles
+@endsection
+
 @section('content')
     <h2>Nos Articles 🤗</h2>
     @if ($articles)

@@ -5,7 +5,7 @@ Usage:
   command [options] [arguments]
 
 Options:
-  -h, --help            Display help for the given command. When no command is given display help for the list command
+  , --help            Display help for the given command. When no command is given display help for the list command
   -q, --quiet           Do not output any message
   -V, --version         Display this application version
       --ansi|--no-ansi  Force (or disable --no-ansi) ANSI output

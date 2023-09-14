@@ -12,7 +12,8 @@
     @extends('layouts.master')
     @section('content')
         <h3>Here to create new article !</h3>
-        <form action="articles/create" enctype="multipart/form-data" method="post">
+        <form action="articles/create" enctype="multipart/form-data" method="POST">
+            @csrf
             @include('partials.article-form')
         </form>
     @endsection

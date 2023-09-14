@@ -13,39 +13,22 @@ class ArticlesController extends Controller
     public function index()
     {
         $articles = Article::with('user')->orderBy('created_at', 'desc')->get();
-        return view('articles.articles', ['articles' => $articles]);
-        //compact('articles')
+        return view('articles.articles', compact('articles'));
+        // ['articles' => $articles]
     }
 
-
-    // La méthode 'show' du contrôleur
-    // public function show($id){
-    //     $article = Article::with('user')->where('id', $id)->firstOrFail();
-    //     //dd($article);
-    //     //ddd($article);
-    //     return view('articles.show', compact('article'));
-    // }
-
-    // La méthode 'show' du contrôleur
-    // public function show(Article $article)
-    // {
-    //     return view('articles.show', compact('article'));
-    // }
 
     //Création d'une sous requête avec 'eloquent', la méthode 'with()' accepte un tableau avec un callback:
     public function show($id)
     {
-        // $article = Article::with('user')->with([
-        //     'comments' => function ($query) {
-        //         $query->with('user');
-        //     }
-        // ])->findOrFail($id);
+        // $article = Article::with('user')->with(['comments' => function ($query) {
+        //     $query->with('user');
+        // }])->findOrFail($id);
+    
+        $article = Article::with(['comments' => function ($query) {
+            $query->with('user');
+        }])->findOrFail($id);
 
-        $article = Article::with([
-            'comments' => function ($query) {
-                $query->with('user');
-            }
-        ])->findOrFail($id);
         return view('articles.show', compact('article'));
     }
 
@@ -60,20 +43,23 @@ class ArticlesController extends Controller
     public function store(Request $request)
     {
         // vérification des permissions plus tard
-        // $user = User::find(1);
-        // $request['user_id'] = $user->id;
+        $user = User::find(1);
+        $request['user_id'] = $user->id;
     
-        // $this->validate($request, [
-        //     'title' => 'required|string',
-        //     'body' => 'required|string',
-        //     'user_id' => 'required|numeric|exists:users,id',
-        // ]);
-        
+        $this->validate($request, [
+            'title' => 'required|string',
+            'body' => 'required|string',
+            'user_id' => 'required|numeric|exists:users,id',
+        ]);
         // dd($request->all());
-
+        
         //Enregistre l'article
         $art = Article::create($request->all());
-        dd($art);
+        // dd($art);
+
+        //Redirection après la création d'un article
+        Article::create($request->all());
+        return redirect('/articles')->with(['succes_message' => 'L\'article a été créé !']);
     }
 
     //Edit method
@@ -84,10 +70,16 @@ class ArticlesController extends Controller
     //Update method
     public function update(Request $request, Article $article){
         // dd($article, $request->all());
-
+        $user = User::find(1);
+        $request['user_id'] = $user->id;
         $article->update($request->all());
     }
 
+    //Delete method to delete article
+    public function delete(Article $article){
+        //vérification des permissions plus tard
+        $article->delete();
+    }
 
 
 }
