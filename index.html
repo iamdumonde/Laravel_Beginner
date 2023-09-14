@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+<pre>
+Délanno_Kotcho
+
+Quiz_PHP4
+
+<h3>1. En Laravel, à quoi sert la directive @include ?</h3>
+<li>Elle permet d'inclure une vue dans une autre vue</li> `Bonne`
+<li>Elle instancie une classe dans une vue</li>
+<li>Elle ajoute un nouveau champs dans les migrations</li>
+<li>Elle n'existe pas en Laravel</li>
+
+<h3>2. En Laravel, dans quel dossier se trouve les routes ?</h3>
+<li>router</li>
+<li>routes</li> `Bonne`
+<li>web.php</li>
+<li>api.php</li>
+
+<h3>3. En Laravel, que peut-on utiliser au lieur de var_dump ou die</h3>
+<li>dump()</li>
+<li>vd()</li>
+<li>dd()</li> `Bonne`
+<li>dump_die()</li>
+
+<h3>4. En Laravel, imaginons un contrôleur, et dans lequel nous considérons l'action suivante:</h3>
+
+use App\Models\User;
+
+public function store(Request $request) {
+ $user = User::find(1);
+ $request['user_id'] = $user->id;
+
+ $this->validate($request, [
+  'title' => 'required | string',
+  'body' => 'required | string',
+  'user_id' => 'required | numeric | exists:users, id';
+ ]);
+
+ $art = Article::create($request->all());
+}
+
+Que se passe-t-il lorsqu'un formulaire est soumis et valide ?
+On affiche à nouveau le formulaire
+On enrégistre le nouvel article en base de données `Bonne`
+On enrégistre le nouvel article en base de données et on redigige l'utilisateur vers la page associée audit article
+On enrégistre le nouvel article en base de données et on redirige l'utilisateur vers la page d'accueil
+
+<h3>5. En Laravel, quel est le rôle de Blade ?</h3>
+Générer du HTML de façon plus maintenable et sécurisée qu'en PHP pur `Bonne`
+Exécuter des suites de tests automatisés
+Remplir des suites de données avec de faux contenus à des fins de développement
+Automatiser certaines tâches comme la compression des images ou la compilation du Sass en CSS
+
+<h3>6. En Laravel, qu'affiche le morceau de template suivant ?</h3>
+
+@extends('layouts.app')
+
+@section('body')
+ <ul>
+  @foreach (articles as article)
+   <li>
+    <h2>{{ article.title }}</h2>
+    <p>{{ article.lede }}</p>
+   <li>
+  @endforeach
+ </ul>
+@endsection
+Une liste d'articles `Bonne`
+Le body HTML
+Le titre et le chapeau d'un article si celui-ci existe 
+Une liste d'utilisateurs
+
+<h3>7. En Laravel, dans quel dossier doit-on placer les assets finaux qui seront servis aux navigateurs (CSS, JS, images, etc.) ?</h3>
+<li>/tests</li>
+<li>/public</li> `Bonne`
+<li>/vendor</li>
+<li>/var</li>
+
+<h3>8. En Laravel, dans le cadre de l'utilisation de l'ORM Eloquent, quelle commande permet de générer la structure de la base de données à partir des migrations ?</h3>
+<li>php artisan make:migration</li> `Bonne`
+<li>php artisan make:migrate</li>n'existe pas
+<li>php artisan migration</li>n'existe pas
+<li>php artisan db:seed</li>
+
+<h3>9. Laravel est un projet plus ancien que Symfony</h3>
+<li>Vrai</li>  
+<li>Faux</li>`Bonne`
+
+<h3>10. Laravel nécessite l'achat d'une licence afin de pouvoir être utilisé dans le cadre d'un projet commercial</h3>
+<li>Vrai</li>
+<li>Faux</li> `Bonne`
+
+<h3>11. En Laravel, à quoi sert la directive @yield ?</h3>
+<li>À afficher le contenu d'une section</li> `Bonne`
+<li>À étendre un template</li>
+<li>À inclure un fichier</li>
+<li>Cette directive n'existe pas en Laravel</li>
+
+<h3>12. En Laravel,quelle fonction est appellée pour créer les champs "created_at" et "updated_at" dans une migration ?</h3>
+<li>Schema::create('table', function (Blueprint $table) { $table->timestamps(); });</li> `Bonne`
+<li>Schema::create('table', function (Blueprint $table) { $table->date(); });</li>
+<li>Schema::create('table', function (Blueprint $table) { $table->timestamp(); });</li>
+<li>Schema::create('table', function (Blueprint $table) { $table->dateTime(); });</li>
+
+<h3>13. Que sont les migrations Laravel ?</h3>
+<li>Un ensemble de règles à suivre lors de la mise à jour de Laravel</li>
+<li>Une liste de commandes utilisées pour installer les dépendances PHP</li>
+<li>Ils sont similaires au control des versions pour la base de données, permettant ainsi à une équipe de définir et de partager le schéma de la BDD d'une application</li> `Bonne`
+<li>Laravel ne supporte pas les migrations</li>
+
+<h3>14. En Laravel, qu'est ce que le "seeding" ?</h3>
+<li>Le processus de développement d'une facade</li> 
+<li>Le processus d'ajouter de fausses données dans la BDD</li> `Bonne`
+<li>Une meilleure manière de communiquer avec le conteneur de services</li>
+<li>Le processus de récupérer les migrations</li>
+
+<h3>15. Quelles sont les méthodes que contiennent une migration ?</h3>
+<li>create() et delete()</li>
+<li>up() et down()</li> `Bonne`
+<li>make() et remove()</li>
+<li>execute() et destroy()</li>
+
+<h3>16. À quoi sert un model en Laravel ?</h3>
+<li>À implémenter différents widgets dans une application</li>
+<li>À améliorer l'expérience utilisateur</li>
+<li>À envoyer et récupérer les données d'une table de la BDD</li> `Bonne`
+<li>À autogénérer les composants pour initier une application</li>
+
+<h3>17. En Laravel, quel est le rôle de l'ORM Eloquent ?</h3>
+<li>Servir d'interface entre les modèles PHP et les tables en base de données</li> `Bonne`
+<li>Gérer le routing de l'application</li>
+<li>Générer des proxies dans le cadre de l'injection de dépendances par autowiring</li>
+<li>Servir d'interface entre les formulaires PHP et leurs templates HTML</li>
+
+<h3>18. Qu'est ce que Eloquent, et à quoi sert-il ?</h3>
+C'est un gestionnaire de dépendance php
+C'est un mapping objet-relationnel utilisé pour interagir avec la BDD `Bonne`
+C'est une API utilisée pour se connecter à la BDD
+C'est un simple moyen de s'authentifier
+
+<h3>19. Que signifie SQL ?</h3>
+<li>Server Query Language</li>
+<li>Structured Query Language</li> `Bonne`
+<li>Simple Query Language</li>
+<li>Standard Query Language</li>
+
+<h3>20. Que retourne: SELECT * FROM table LIMIT 10 OFFSET 5; ?</h3>
+<li>1-Les enregistrements 6 à 15 d'une table</li>
+<li>2-Les enregistrements 1 à 10 d'une table</li>
+<li>3-Les enregistrements 0 à 9 d'une table</li>
+<li>4-Les enregistrements 5 à 10 d'une table</li> `Bonne`
+</pre>
+    <script src="ijn.js"></script>
+</body>
+</html>

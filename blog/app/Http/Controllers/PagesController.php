@@ -27,4 +27,6 @@ class PagesController extends Controller
     // public function articles(){
     //     return view('layouts.articles');
     // }
+
+ 
 }

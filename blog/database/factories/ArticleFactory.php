@@ -34,7 +34,8 @@ class ArticleFactory extends Factory
             'user_id' => function () {
                 return User::inRandomOrder()->first()->id;
             },
-            'image' => fake()->image('public/images'),
+            'image' => fake()->image(public_path('/images')),
+            // 'image' => fake()->image('public/images'),
         ];
     }
 }
