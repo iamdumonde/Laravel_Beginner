@@ -21,13 +21,13 @@ class ArticlesController extends Controller
     //Création d'une sous requête avec 'eloquent', la méthode 'with()' accepte un tableau avec un callback:
     public function show($id)
     {
-        // $article = Article::with('user')->with(['comments' => function ($query) {
-        //     $query->with('user');
-        // }])->findOrFail($id);
-    
-        $article = Article::with(['comments' => function ($query) {
+        $article = Article::with('user')->with(['comments' => function ($query) {
             $query->with('user');
         }])->findOrFail($id);
+    
+        // $article = Article::with(['comments' => function ($query) {
+        //     $query->with('user');
+        // }])->findOrFail($id);
 
         return view('articles.show', compact('article'));
     }
